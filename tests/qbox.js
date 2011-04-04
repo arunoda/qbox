@@ -47,3 +47,28 @@ exports.testTimeout = function(test) {
 		}
 	});
 };
+
+exports.testStopWIthTick = function(test) {
+	
+	var $ = qbox.create(["db1", "db2"]);
+	$.ready(function() {
+		test.fail("Should not execute after stops");
+	});
+	
+	$.stop();
+	$.tick("db1");
+	$.tick("db2");
+	test.done();
+};
+
+exports.testStopWithoutTick = function(test) {
+	
+	var $ = qbox.create();
+	$.start();
+	$.stop();
+	$.ready(function() {
+		test.fail("Should not execute after stops");
+	});
+	
+	test.done();
+};
