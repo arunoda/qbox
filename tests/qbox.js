@@ -72,3 +72,29 @@ exports.testStopWithoutTick = function(test) {
 	
 	test.done();
 };
+
+exports.testAfterStopTimeout = function(test) {
+	
+	var $ = qbox.create();
+	$.stop();
+	$.timeout(1000, function() {
+		test.fail("Should not call the timeout");
+	});
+	
+	setTimeout(function() {
+		test.done();
+	}, 1500);
+};
+
+exports.testBeforeStopTimeout = function(test) {
+	
+	var $ = qbox.create();
+	
+	$.timeout(1000, function() {
+		test.fail("Should not call the timeout");
+	});
+	$.stop();
+	setTimeout(function() {
+		test.done();
+	}, 1500);
+};
