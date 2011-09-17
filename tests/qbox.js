@@ -1,4 +1,4 @@
-var qbox = require("../lib/qbox");
+var qbox = require("qbox");
 
 exports.testSteps = function(test) {
 	
@@ -118,6 +118,27 @@ exports.testResetAfterStop = function(test) {
 	var $ = qbox.create([1,2]);
 
 	$.ready(function() {
+		test.ok(true);
+	});	
+	
+	$.tick(2);
+	$.tick(1);
+	$.reset();
+	$.ready(function() {
+		test.ok(true);
+	});	
+	$.tick(1);
+	$.tick(2);
+
+	test.done();
+};
+
+exports.testOnStart = function(test) {
+	
+	test.expect(2);
+	var $ = qbox.create([1,2]);
+
+	$.onStart(function() {
 		test.ok(true);
 	});	
 	
