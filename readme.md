@@ -1,4 +1,4 @@
-QBox - Flow Control library for NodeJS
+QBox - Quick Flow Control library for NodeJS
 =======================================
 
 Introduction
