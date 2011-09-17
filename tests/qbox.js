@@ -98,3 +98,34 @@ exports.testBeforeStopTimeout = function(test) {
 		test.done();
 	}, 1500);
 };
+
+exports.testReset = function(test) {
+	
+	var $ = qbox.create([1,2]);
+	$.tick(2);
+	$.reset();
+	$.tick(1);
+	$.tick(2);
+
+	$.ready(function() {
+		test.done();
+	});	
+};
+
+exports.testResetAfterStop = function(test) {
+	
+	test.expect(2);
+	var $ = qbox.create([1,2]);
+
+	$.ready(function() {
+		test.ok(true);
+	});	
+	
+	$.tick(2);
+	$.tick(1);
+	$.reset();
+	$.tick(1);
+	$.tick(2);
+
+	test.done();
+};
