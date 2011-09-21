@@ -150,3 +150,39 @@ exports.testOnStart = function(test) {
 
 	test.done();
 };
+
+exports.testCountingSteps = function(test) {
+	
+	test.expect(1);
+	var $ = qbox.create(4);
+	$.ready(function() {
+		test.ok(true);
+	});
+	
+	[1,2,3,4].forEach(function(step) {
+		$.tick();
+	});
+	test.done();
+};
+
+exports.testCountingStepsWithReset = function(test) {
+	
+	test.expect(2);
+	var $ = qbox.create(4);
+	$.ready(function() {
+		test.ok(true);
+	});
+	
+	[1,2,3,4].forEach(function(step) {
+		$.tick();
+	});
+	$.reset();
+	$.ready(function() {
+		test.ok(true);
+	});
+	[1,2,3,4].forEach(function(step) {
+		$.tick();
+	});
+
+	test.done();
+};
