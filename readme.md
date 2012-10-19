@@ -4,7 +4,7 @@ QBox - Quick Flow Control library for NodeJS
 Introduction
 ------------
 
-There are whole a bunch of NodeJS Flow Control libraries.
+There are a bunch of NodeJS Flow Control libraries.
 In order to use most of them you need to change how you program, 
 or learn some new syntax.
 
@@ -18,9 +18,9 @@ Install
 Usage
 -----
 
-### Complete After Something happens
+### Complete After Something Happens
 
-I need to do some tasks after I connect've connect with the database
+I need to do some tasks after I connect with the database
 
 	var $ = qbox.create();
 	
@@ -32,14 +32,14 @@ I need to do some tasks after I connect've connect with the database
 		//do something
 	});
 	
-	//at somewhere else in your programme
+	//somewhere else in your program
 	$.ready(function() {
 		//do some other stuff
 	});
 
-### Complete After Some Few things happens
+### Complete After a Few Things Happen
 
-I need to do some task after I'm connected to database and registry
+I need to do some tasks after I've connected to the database and registry
 
 	var go = qbox.ready(['db', 'registry']);
 	
